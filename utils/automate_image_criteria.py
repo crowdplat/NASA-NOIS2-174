@@ -87,6 +87,19 @@ def read_overlaps_csv(csv_url):
     df = pd.DataFrame(data)
     df.columns = df.iloc[0]
     df.drop(index=0, inplace=True)
-    
+    df.reset_index(inplace=True, drop=True)
+    df = df.astype({'Overlap ID':'int32','Thickness':'Float64', 'Area':'Float64', 'Image Count': 'int32'})
+     
     return df
+    
+def get_serial_image(row_id, serial, image):
 
+    serial_lst = []
+    img_lst = []
+
+    for i in range(overlaps_df.iloc[row_id]['Image Count']):
+        move_rows = i*2
+        serial_lst.append(overlaps_df.iloc[row_id,serial+move_rows])
+        img_lst.append(overlaps_df.iloc[row_id, image+move_rows])
+        
+    return serial_lst, img_lst
