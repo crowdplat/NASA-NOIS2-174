@@ -92,7 +92,7 @@ def read_overlaps_csv(csv_url):
      
     return df
     
-def get_serial_image(overlaps_df, row_id, serial, image):
+def get_serial_image(overlaps_df, row_id, serial=4, image=5):
 
     serial_lst = []
     img_lst = []
