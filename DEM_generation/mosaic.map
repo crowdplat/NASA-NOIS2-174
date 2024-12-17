@@ -1,0 +1,17 @@
+Group = Mapping
+ProjectionName = PolarStereographic
+CenterLongitude = -140.0
+CenterLatitude = -90.0
+TargetName = Moon
+EquatorialRadius = 1738100.0 <meters>
+PolarRadius = 1736000.0 <meters>
+LatitudeType = Planetocentric
+LongitudeDirection = PositiveEast
+LongitudeDomain = 180
+MinimumLatitude = -89.9356
+MaximumLatitude = -89.0686
+MinimumLongitude = -172.3185
+MaximumLongitude = -102.2265
+PixelResolution = 2.0 <meters/pixel>
+End_Group
+End
