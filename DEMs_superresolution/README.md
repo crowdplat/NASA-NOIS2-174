@@ -11,9 +11,9 @@
 
 # install extra packages
 
-pip install rasterio
-pip install ipykernel
-pip install wandb
+pip install rasterio \
+pip install ipykernel \
+pip install wandb \
 
 *IMPORTANT - pytorch has error with numpy version, please install version lower than 2 for numpy*
 
@@ -27,12 +27,12 @@ python -m ipykernel install --user --name nasa_tt_pytorch --display-name "Python
 https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/
 
 Train Set (training)
-NAC_DTM_FECNDITATS3
-NAC_DTM_MRINGENII
-NAC_DTM_LICHTENBER13
-NAC_DTM_ARISTARCHU2
+ NAC_DTM_FECNDITATS3
+ NAC_DTM_MRINGENII
+ NAC_DTM_LICHTENBER13
+ NAC_DTM_ARISTARCHU2
 
 Test Set (validation)
-NAC_DTM_VIRTANEN2
-NAC_DTM_MESSIER3
-NAC_DTM_CMPTNBELK2
+ NAC_DTM_VIRTANEN2
+ NAC_DTM_MESSIER3
+ NAC_DTM_CMPTNBELK2
