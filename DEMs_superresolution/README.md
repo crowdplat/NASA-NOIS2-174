@@ -19,7 +19,7 @@ pip install wandb
 
 pip install "numpy<2"
 
-# ipython resgister
+# ipython register
 
 python -m ipykernel install --user --name nasa_tt_pytorch --display-name "Python (nasa_super_res_pytorch)"
 
