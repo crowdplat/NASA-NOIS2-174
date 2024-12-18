@@ -13,8 +13,8 @@
 
 pip install rasterio \
 pip install ipykernel \
-pip install wandb \ 
-pip install kornia \ 
+pip install wandb \
+pip install kornia \
 pip install torchmetrics\
 pip install einops
 
