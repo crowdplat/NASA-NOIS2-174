@@ -11,11 +11,11 @@
 
 # install extra packages
 
-pip install rasterio \
-pip install ipykernel \
-pip install wandb \ 
-pip install kornia \
-pip install torchmetrics \
+pip install rasterio
+pip install ipykernel
+pip install wandb
+pip install kornia
+pip install torchmetrics
 pip install einops
 
 *IMPORTANT - pytorch has error with numpy version, please install version lower than 2 for numpy*
