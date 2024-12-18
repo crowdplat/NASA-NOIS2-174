@@ -1,22 +1,21 @@
-# Conda Env
+# create conda environment
 
 1. run "conda env list" to check if the env "nasa_tt_pytorch" is there, it should show the directory "/home/ec2-user/SageMaker/envs/nasa_tt_pytorch"
 
-## if no env "nasa_tt_pytorch", clone to create one
-## make sure to provide a prefix after -p
-"conda create  -p /home/ec2-user/SageMaker/envs/nasa_tt_pytorch  --clone pytorch_p310"    
+  *if no env "nasa_tt_pytorch", clone to create one, make sure to provide a prefix after -p*
+  conda create  -p /home/ec2-user/SageMaker/envs/nasa_tt_pytorch  --clone pytorch_p310    
 
 2. run "export CONDA_ENVS_PATH=/home/ec2-user/SageMaker/envs" 
 3. do "conda activate nasa_tt_pytorch" or "source activate nasa_tt_pytorch"
 ---
 
-# install packages
+# install extra packages
 
 pip install rasterio
 pip install ipykernel
 pip install wandb
 
-## IMPORTANT - pytorch has error with numpy version, please install version lower than 2 for numpy
+*IMPORTANT - pytorch has error with numpy version, please install version lower than 2 for numpy*
 
 pip install "numpy<2"
 
