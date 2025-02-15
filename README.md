@@ -2,25 +2,42 @@
 
 The project contains three parts:
 1. Selecting the images for DEMs production
-2. Producing DEMs with open source [ISIS](https://isis.astrogeology.usgs.gov/8.3.0/) and [ASP](https://stereopipeline.readthedocs.io/en/latest/index.html) pipelines
+2. Producing DEMs with open source Integrated Software for Imagers and Spectrometers ([ISIS](https://isis.astrogeology.usgs.gov/8.3.0/)) and Ames Stereo Pipeline ([ASP](https://stereopipeline.readthedocs.io/en/latest/index.html)) pipelines
 3. Upscaling DEMs using the DL model
 
 # Enivronment
 
 This project is run on AWS SageMaker Notebook with ml.g4dn.xlarge instance. anaconda is used to create the environment from exisiting pytorch environment `pytorch_p310` in AWS for reusability 
 
- <div align="center">
- <img src="images/zoomed_sample.png" width="75%" alt="Sample Output and Difference Map">
- </div>
-
 
 # Preprocessing
 
+- Import and calibrate images
+- Attach ephemeris information
+- Determine overlap area within ROI
+- Gather observation imaging geometry 
+- Evaluate stereo pair selection criteria 
+- Project selected images using polar projection bounded by ROI
+- Use the Ames Stereo Pipeline (ASP) to triangulate DEMs for selected image pairs.
+- DEMs tied down to LOLA altimetry
+- Individual DEMs mosaicked, leveled, and smoothed to remove seams.
+- Optionally, holes are filled-in prior to passing to super-resolution model.
+  
+
+
+ <div>
+ <img src="images/DEM_1.png" alt="CR">
+ 
+ <img src="images/DEM_2.png" alt="MM">
+  
+ <img src="images/DEM_3.png" alt="SP">
+ </div>
 #
 
 
-# Training data source 
-https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/
+# Training dataset
+Public Data source: LROC NAC DTMs - https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/ 
+
 
 
 # Model
