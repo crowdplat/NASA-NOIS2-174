@@ -33,23 +33,6 @@ pip install wandb
 
 pip install "numpy<2"
 
-
-# piq manual install and edit piq/ms_ssim.py
- ~/anaconda3/envs/nasa_tt_pytorch/lib/python3.10/site-packages/piq/ms_ssim.py
-
-git clone https://github.com/photosynthesis-team/piq.git
-cd piq
-python setup.py install --user
-
-in ms_ssim.py:
-comment: 
-    _validate_input([x, y], dim_range=(4, 5), data_range=(0, data_range))
-added:
-    data_range = (np.nanmin([x,y]), np.nanmax([x,y]))
-
-2. download and unzip the open source model code reponsitory 
-
-
 2. ipython register
 *first activate conda env*
 source activate nasa_tt_pytorch
@@ -58,35 +41,9 @@ source activate nasa_tt_pytorch
 python -m ipykernel install --user --name nasa_tt_pytorch --display-name "Python (nasa_super_res_pytorch)"
 
 
-
-# image source 
+# Training data source 
 https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/
 
-
-
-1. Methodologies
-
-
-global information suplement 
-Kriging method
-autocorrelation
-
-
-variogram
-GDAL: https://gdal.org/en/latest/download.html
-conda install -c conda-forge gdal
-
-
-Train
-NAC_DTM_FECNDITATS3
-NAC_DTM_MRINGENII
-NAC_DTM_LICHTENBER13
-NAC_DTM_ARISTARCHU2
-
-test
-NAC_DTM_VIRTANEN2
-NAC_DTM_MESSIER3
-NAC_DTM_CMPTNBELK2
 
 # Super Resolution model's performance analysis
 1. Input and Output Comparison
