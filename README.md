@@ -1,48 +1,34 @@
-# Conda Env
+# Goal
 
-1. run "conda env list" to check if the env "nasa_tt_pytorch" is there, it should show the directory "/home/ec2-user/SageMaker/envs/nasa_tt_pytorch"
-2. if nasa is not there, run "export CONDA_ENVS_PATH=/home/ec2-user/SageMaker/envs" 
-3. do "conda activate nasa_tt_pytorch" or "source activate nasa_tt_pytorch"
----
+The project contains three parts:
+1. Selecting the images for DEMs production
+2. Producing DEMs with open source [ISIS](https://isis.astrogeology.usgs.gov/8.3.0/) and [ASP](https://stereopipeline.readthedocs.io/en/latest/index.html) pipelines
+3. Upscaling DEMs using the DL model
 
+# Enivronment
 
-1. conda actiate nasa_tt
+This project is run on AWS SageMaker Notebook with ml.g4dn.xlarge instance. anaconda is used to create the environment from exisiting pytorch environment `pytorch_p310` in AWS for reusability 
 
-sh-4.2$ conda env list
-# conda environments:
-
-base                     /home/ec2-user/anaconda3
-JupyterSystemEnv      *  /home/ec2-user/anaconda3/envs/JupyterSystemEnv
-R                        /home/ec2-user/anaconda3/envs/R
-python3                  /home/ec2-user/anaconda3/envs/python3
-pytorch_p310             /home/ec2-user/anaconda3/envs/pytorch_p310
-tensorflow2_p310         /home/ec2-user/anaconda3/envs/tensorflow2_p310
-
-## if no env "nasa_tt_pytorch", clone to create one
-## make sure to provide a prefix
-conda create  -p /home/ec2-user/SageMaker/envs/nasa_tt_pytorch  --clone pytorch_p310    
+ <div align="center">
+ <img src="images/zoomed_sample.png" width="75%" alt="Sample Output and Difference Map">
+ </div>
 
 
-# install packages
+# Preprocessing
 
-pip install rasterio
-pip install ipykernel
-pip install wandb
-
-## IMPORTANT - pytorch has error with numpy version, please install version lower than 2 for numpy
-
-pip install "numpy<2"
-
-2. ipython register
-*first activate conda env*
-source activate nasa_tt_pytorch
-
-*then type following*
-python -m ipykernel install --user --name nasa_tt_pytorch --display-name "Python (nasa_super_res_pytorch)"
+#
 
 
 # Training data source 
 https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/
+
+
+# Model
+
+Default parameters: Scaling Factor 2x (Changeable) 
+Model architecture - Generative Adversarial Network (GAN):  
+- Generator: Encoder-Decoder with Attention layers
+- Discriminator: VGG net
 
 
 # Super Resolution model's performance analysis
