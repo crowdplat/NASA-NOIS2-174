@@ -9,8 +9,18 @@ The project contains three parts:
 
 This project is run on AWS SageMaker Notebook with ml.g4dn.xlarge instance. anaconda is used to create the environment from exisiting pytorch environment `pytorch_p310` in AWS for reusability 
 
+# 1. Selecting the images for DEMs production
+Source: LROC - NAC
 
-# Preprocessing
+## 1.1 Stereo Image Pair Criteria:
+- Illumination Geometry - Incidence, Emission, Phase, Resolution
+- Strength of Stereo - Base-to-Height Ratio
+- Illumination Compatibility - Resolution Ratio, Shadow-Tip Distance
+- Image Pair Overlap within region of interest (ROI)
+
+# 2. Producing DEMs with ISIS and ASP 
+
+## 2.1 Data Preprocessing
 
 - Import and calibrate images
 - Attach ephemeris information
@@ -18,6 +28,8 @@ This project is run on AWS SageMaker Notebook with ml.g4dn.xlarge instance. anac
 - Gather observation imaging geometry 
 - Evaluate stereo pair selection criteria 
 - Project selected images using polar projection bounded by ROI
+
+## 2.2  DEMs Creation
 - Use the Ames Stereo Pipeline (ASP) to triangulate DEMs for selected image pairs.
 - DEMs tied down to LOLA altimetry
 - Individual DEMs mosaicked, leveled, and smoothed to remove seams.
@@ -32,15 +44,22 @@ This project is run on AWS SageMaker Notebook with ml.g4dn.xlarge instance. anac
   
  <img src="images/DEM_3.png" alt="SP">
  </div>
-#
+# 3. Upscaling DEMs using the DL model
 
 
-# Training dataset
+## 3.1 Training dataset
 Public Data source: LROC NAC DTMs - https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/ 
 
+Split the original DEMs and the down-scaled DEMs into smaller squares that could be fit into the deep learning model training and inference
+All squares with invalid data points such as null values, will be discarded
+Creating down-resolution / down-scaled DEMs from the 2m / pixel high resolution DEMs 
 
+## 3.2 Data Preprocessing
+- Split the original DEMs and the down-scaled DEMs into smaller squares that could be fit into the deep learning model training and inference
+- All squares with invalid data points such as null values, will be discarded
+- Creating down-resolution / down-scaled DEMs from the 2m / pixel high resolution DEMs 
 
-# Model
+## 3.3 Model
 
 Default parameters: Scaling Factor 2x (Changeable) 
 Model architecture - Generative Adversarial Network (GAN):  
@@ -48,23 +67,23 @@ Model architecture - Generative Adversarial Network (GAN):
 - Discriminator: VGG net
 
 
-# Super Resolution model's performance analysis
-1. Input and Output Comparison
+# 4 Super Resolution model's performance analysis
+## 4.1 Input and Output Comparison
 
-    - The first panel (LR) represents the low-resolution input DEM (128×128).
-    -  While the second panel (HR) corresponds to the high-resolution ground truth DEM (256×256). 
-    - The third panel (SR) displays the model-generated super-resolved DEM (256×256).
-    - The final panel illustrates the absolute difference between HR and SR, highlighting the discrepancy between the ground truth and the model's output.
-    
-     The color bars indicate the elevation values, showcasing the depth variations across the DEMs. The mean absolute difference between HR and SR is computed, quantifying the model's reconstruction accuracy.
+- The first panel (LR) represents the low-resolution input DEM (128×128).
+-  While the second panel (HR) corresponds to the high-resolution ground truth DEM (256×256). 
+- The third panel (SR) displays the model-generated super-resolved DEM (256×256).
+- The final panel illustrates the absolute difference between HR and SR, highlighting the discrepancy between the ground truth and the model's output.
+
+ The color bars indicate the elevation values, showcasing the depth variations across the DEMs. The mean absolute difference between HR and SR is computed, quantifying the model's reconstruction accuracy.
 
 
 ![Sample Outpur and Difference Map](images/sample_ouput.png)
 
 
-2. Detailed Visual Analysis
+## 4.2 Detailed Visual Analysis
 
-    Comparison of Low-Resolution and Super-Resolution DEMs
+Comparison of Low-Resolution and Super-Resolution DEMs
 
 
  <div align="center">
