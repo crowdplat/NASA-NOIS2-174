@@ -1,6 +1,6 @@
-# Goal
+# NASA NOIS2-174 Project
 
-The project contains three parts:
+This project contains three parts:
 1. Selecting the images for DEMs production
 2. Producing DEMs with open source Integrated Software for Imagers and Spectrometers ([ISIS](https://isis.astrogeology.usgs.gov/8.3.0/)) and Ames Stereo Pipeline ([ASP](https://stereopipeline.readthedocs.io/en/latest/index.html)) pipelines
 3. Upscaling DEMs using the DL model
@@ -91,7 +91,10 @@ Comparison of Low-Resolution and Super-Resolution DEMs
  </div>
 
 # Contribution
-- Alex Hayes
-- Viktoriia O Voloshyna,  Mohammad Kashif, Thomas Tam
-- Sal Sarosh, Aleena Kuriakose
+- Advisor: Alex Hayes
+- Developers:
+  - Viktoriia O Voloshyna,  Mohammad Kashif, Thomas Tam
+- Project Managers:
+  - Sal Sarosh, Aleena Kuriakose
+
 CrowdPlat, Inc.
