@@ -89,3 +89,9 @@ Comparison of Low-Resolution and Super-Resolution DEMs
  <div align="center">
  <img src="images/zoomed_sample.png" width="75%" alt="Sample Output and Difference Map">
  </div>
+
+# Contribution
+- Alex Hayes
+- Viktoriia O Voloshyna,  Mohammad Kashif, Thomas Tam
+- Sal Sarosh, Aleena Kuriakose
+CrowdPlat, Inc.
