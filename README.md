@@ -1,11 +1,13 @@
 # NASA NOIS2-174 Project - Lunar Image Upscaling
 
 **Project Synopsis:**
+
 Use artificial intelligence or machine learning techniques to generate higher
 resolution lunar maps than currently available, while limiting any loss of
 accuracy.
 
 **Background of the Problem:**
+
 Potential use cases for this higher resolution data product include serving as
 training data sets for neural nets and other algorithms that require lunar maps as
 inputs. This includes terrain relative navigation, hazard detection and avoidance,
