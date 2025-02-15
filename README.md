@@ -1,11 +1,11 @@
 # NASA NOIS2-174 Project - Lunar Image Upscaling
 
-Project Synopsis:
+**Project Synopsis:**
 Use artificial intelligence or machine learning techniques to generate higher
 resolution lunar maps than currently available, while limiting any loss of
 accuracy.
 
-Background of the Problem:
+**Background of the Problem:**
 Potential use cases for this higher resolution data product include serving as
 training data sets for neural nets and other algorithms that require lunar maps as
 inputs. This includes terrain relative navigation, hazard detection and avoidance,
@@ -15,7 +15,7 @@ the Moon, or uses the Moon for navigation. An additional potential use case is
 the broad availability of lunar terrain data sets for use in academic/university
 navigation R&D.
 
-This project contains three parts:
+**This project contains three parts:**
 1. Selecting the images for DEMs production
 2. Producing DEMs with open source Integrated Software for Imagers and Spectrometers ([ISIS](https://isis.astrogeology.usgs.gov/8.3.0/)) and Ames Stereo Pipeline ([ASP](https://stereopipeline.readthedocs.io/en/latest/index.html)) pipelines
 3. Upscaling DEMs using the DL model
