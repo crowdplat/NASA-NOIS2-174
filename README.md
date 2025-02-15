@@ -1,4 +1,4 @@
-# NASA NOIS2-174 Project
+# NASA NOIS2-174 Project - Lunar Image Upscaling
 
 This project contains three parts:
 1. Selecting the images for DEMs production
