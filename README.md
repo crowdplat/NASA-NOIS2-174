@@ -109,9 +109,5 @@ Comparison of Low-Resolution and Super-Resolution DEMs
 
 # Contribution
 - Advisor: Alex Hayes
-- Developers:
-  - Viktoriia O Voloshyna,  Mohammad Kashif, Thomas Tam
-- Project Managers:
-  - Sal Sarosh, Aleena Kuriakose
-
-CrowdPlat, Inc.
+- Developers: Viktoriia O Voloshyna,  Mohammad Kashif, Thomas Tam
+- Project Coordinator: Aleena Kuriakose
